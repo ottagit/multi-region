@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "~> 5.0"
     }
   }
@@ -9,12 +9,12 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
-  alias = "region_1"
+  alias  = "region_1"
 }
 
 provider "aws" {
   region = "ap-south-1"
-  alias = "region_2"
+  alias  = "region_2"
 }
 
 data "aws_region" "region_1" {
@@ -27,11 +27,11 @@ data "aws_region" "region_2" {
 
 terraform {
   backend "s3" {
-    key = "stage/multi-region/terraform.tfstate"
+    key    = "stage/multi-region/terraform.tfstate"
     bucket = "batoto-bitange"
     region = "us-east-1"
 
     dynamodb_table = "terraone-locks"
-    encrypt = true
+    encrypt        = true
   }
 }
