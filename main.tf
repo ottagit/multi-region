@@ -20,14 +20,14 @@ provider "aws" {
 resource "aws_instance" "region_1" {
   provider = aws.region_1
 
-  ami = data.aws_ami.ubuntu_region1.id
+  ami           = data.aws_ami.ubuntu_region1.id
   instance_type = "t2.micro"
 }
 
 resource "aws_instance" "region_2" {
   provider = aws.region_2
 
-  ami = data.aws_ami.ubuntu_region2.id
+  ami           = data.aws_ami.ubuntu_region2.id
   instance_type = "t2.micro"
 }
 
@@ -43,11 +43,11 @@ data "aws_ami" "ubuntu_region1" {
   provider = aws.region_1
 
   most_recent = true
-  owners = [ "099720109477" ] # Canonical
+  owners      = ["099720109477"] # Canonical
 
   filter {
-    name = "name"
-    values = [ "ubuntu/images/hvm-ssd/ubuntu-focal-22.04-amd64-server-*" ]
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-22.04-amd64-server-*"]
   }
 }
 
@@ -55,11 +55,11 @@ data "aws_ami" "ubuntu_region2" {
   provider = aws.region_2
 
   most_recent = true
-  owners = [ "099720109477" ] # Canonical
+  owners      = ["099720109477"] # Canonical
 
   filter {
-    name = "name"
-    values = [ "ubuntu/images/hvm-ssd/ubuntu-focal-22.04-amd64-server-*" ]
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-22.04-amd64-server-*"]
   }
 }
 
